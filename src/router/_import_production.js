@@ -1,0 +1,1 @@
+modules.export=import('@/views/'+file+'.vue').default;
