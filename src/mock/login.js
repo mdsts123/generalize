@@ -8,20 +8,27 @@ const userMap = {
     name: 'Super Admin',
     uid: '001'
   },
-  editor: {
-    role: ['editor'],
-    token: 'editor',
-    introduction: '我是编辑',
-    name: 'Normal Editor',
+  member: {
+    role: ['member'],
+    token: 'member',
+    introduction: '我是成员',
+    name: '成员',
     uid: '002'
 
 
   },
-  developer: {
-    role: ['develop'],
-    token: 'develop',
-    introduction: '我是开发',
-    name: '工程师小王',
+  groupLeader : {
+    role: ['groupLeader'],
+    token: 'groupLeader',
+    introduction: '我是组长',
+    name: '组长',
+    uid: '003'
+  },
+  mult : {
+    role: ['groupLeader','member'],
+    token: 'mult',
+    introduction: '我是多重身份',
+    name: '多重身份',
     uid: '003'
   }
 }
