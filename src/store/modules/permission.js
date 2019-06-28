@@ -37,6 +37,7 @@ function getNowRouter(asyncRouterMap, to) {
       return true;
     } else if (route.children && route.children.length) {
       //如果有孩子就遍历孩子
+
       return getNowRouter(route.children, to);
     }
   });

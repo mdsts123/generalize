@@ -10,10 +10,12 @@
         <Button type="error" @click="handleCancle(index)">删除</Button>
       </template>
     </Table>
+    <EditMember></EditMember>
   </div>
 </template>
 
 <script>
+import EditMember from '@/views/components/FormMember'
 export default {
   data() {
     return {
@@ -61,7 +63,7 @@ export default {
         {
           title: "操作",
           slot: "action",
-          width: 150,
+          width: 200,
           align: "center",
 
         }
@@ -85,7 +87,7 @@ export default {
 
   created: function() {},
 
-  components: {},
+  components: {EditMember},
 
   computed: {},
 

@@ -22,8 +22,8 @@ export const constantRouterMap = [
     redirect: '/pages/p404',
     name: 'Pages',
     component: {
-      render(c) {
-        return c('router-view');
+      render(h) {
+        return h('router-view');
       },
       // Full,
     },
@@ -69,8 +69,8 @@ export const asyncRouterMap = [
         icon: 'thumbsup',
         meta: { role: ['admin'] },
         component: {
-          render(c) {
-            return c('router-view');
+          render(h) {
+            return h('router-view');
           },
         },
         children: [
@@ -105,10 +105,10 @@ export const asyncRouterMap = [
         name: '权限管理',
         redirect: '/authority/member',
         icon: 'bookmark',
-        meta: { role: ['admin','groupLeader'] },
+        meta: { role: ['admin', 'groupLeader'] },
         component: {
-          render(c) {
-            return c('router-view');
+          render(h) {
+            return h('router-view');
           },
         },
         children: [
@@ -117,15 +117,14 @@ export const asyncRouterMap = [
             name: '用户',
             icon: 'social-youtube',
             component: _import('authority/member'),
-            meta: { role: ['admin','groupLeader'] },
-            // hidden: false,
+            meta: { role: ['admin', 'groupLeader'] },
           },
           {
-            path: 'groupleader',
+            path: 'groupLeader',
             name: '管理员',
             icon: 'wand',
             meta: { role: ['admin'] },
-            component: _import('authority/groupleader'),
+            component: _import('authority/groupLeader'),
           },
           {
             path: 'usergroup',
@@ -140,10 +139,10 @@ export const asyncRouterMap = [
         path: '/deal',
         name: '交易管理',
         icon: 'speedometer',
-        component:{
-          render(c){
-            return c('router-view')
-          }
+        component: {
+          render(h) {
+            return h('router-view');
+          },
         },
         redirect: '/deal/order',
         children: [
@@ -185,8 +184,8 @@ export const asyncRouterMap = [
         name: '推广订单',
         icon: 'speedometer',
         component: {
-          render(c) {
-            return c('router-view');
+          render(h) {
+            return h('router-view');
           },
         },
         redirect: '/generalize/order',
@@ -200,6 +199,25 @@ export const asyncRouterMap = [
           },
         ],
       },
+      /*
+      {
+        path: '/edit',
+        name: '编辑',
+        meta: { role: ['admin', 'groupLeader'] },
+        // hidden:true,
+        component:{
+          render(h) {
+           return h('router-view')
+          },
+        },
+        children:[{
+          path: 'member',
+          name: '成员',
+          meta: { role: ['admin', 'groupLeader'] },
+          component: _import('Edit/member'),
+        }]
+      },
+      */
     ],
   },
   { path: '*', redirect: '/pages/404', hidden: true },

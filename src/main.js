@@ -3,7 +3,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store/index.js';
 import './registerServiceWorker';
-import './plugins/iview.js';
+import './plugins';
 
 import './ui.js';
 import './mock/index.js';
