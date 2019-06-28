@@ -63,13 +63,13 @@
       <Upload
         ref="avatar"
         class="m-upload"
-        before-upload="false"
+        :before-upload="handleRemoveDefaultUpload"
         :show-upload-list="false"
         type="drag"
         action=""
       >
         <div class="m-upload-button">
-          <Icon type="ios-camra" size="20"></Icon>
+          <Icon type="camra" size="20"></Icon>
         </div>
       </Upload>
     </FormItem>
@@ -93,6 +93,7 @@ export default {
         groupNam: "",
         emailBind: "no",
         phoneNumberBind: "no",
+        avatar:'',
         avatars: []
       },
       ruleValidate: {
@@ -135,6 +136,10 @@ export default {
     };
   },
   methods: {
+    handleRemoveDefaultUpload(file){
+      this.formValidate.avatar=file
+      return false;
+    },
     handleSubmit(formValidate) {
       this.$refs[formValidate].validate(valid => {
         if (valid) {
