@@ -18,26 +18,25 @@ function hasPermission(roles, route) {
  * @param asyncRouterMap
  * @param roles
  */
-function filterAsyncRouter(asyncRouterMap, roles) {
-  const accessedRouters = asyncRouterMap.filter(route => {
+function filterAsyncRouter(routerMap, roles) {
+  return routerMap.filter(route => {
     if (hasPermission(roles, route)) {
       if (route.children && route.children.length) {
         route.children = filterAsyncRouter(route.children, roles);
       }
       return true;
     }
-    return false;
+    return false;//默认不显示
   });
-  return accessedRouters;
 }
 
 function getNowRouter(asyncRouterMap, to) {
   return asyncRouterMap.some(route => {
+    //当前路径
     if (to.path.indexOf(route.path) !== -1) {
       return true;
     } else if (route.children && route.children.length) {
       //如果有孩子就遍历孩子
-
       return getNowRouter(route.children, to);
     }
   });
@@ -81,8 +80,10 @@ const permission = {
           accessedRouters = filterAsyncRouter(asyncRouterMap, roles);
         }
 
+
         commit('SET_ROUTERS', accessedRouters);
         resolve();
+        roles=null
       });
     },
 

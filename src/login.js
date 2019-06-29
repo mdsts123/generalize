@@ -27,7 +27,6 @@ router.beforeEach((to, from, next) => {
           .then(res => {
             // 拉取user_info
             const roles = res.data.role;
-
             store.dispatch('GenerateRoutes', { roles }).then(() => {
               // 生成可访问的路由表
               router.addRoutes(store.getters.addRouters); // 动态添加可访问路由表
